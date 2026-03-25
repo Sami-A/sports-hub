@@ -47,13 +47,13 @@ function getMatchStatusInfo(event: SportsEvent) {
 
 const BAR_COLORS: Record<MatchStatusType, string> = {
   finished: "#E55050",
-  live: "#00E5A0",
+  live: "#00FFA5",
   upcoming: "#374151",
 };
 
 const STATUS_TEXT_COLORS: Record<MatchStatusType, string> = {
   finished: "#E55050",
-  live: "#00E5A0",
+  live: "#00FFA5",
   upcoming: "#FFFFFF",
 };
 
@@ -69,23 +69,22 @@ export function MatchCard({ event }: MatchCardProps) {
   };
 
   return (
-    <div
-      className="flex items-stretch w-full border-b border-white/5"
-      style={{
-        backgroundColor: isLive ? "rgba(0, 229, 160, 0.05)" : "transparent",
-      }}
-    >
-      {/* Clickable area */}
+    <div className="flex items-stretch w-full border-b border-white/5">
       <button
         onClick={handleClick}
-        className="flex items-center flex-1 py-2 min-w-0 cursor-pointer text-left transition-colors"
+        className="relative flex items-center flex-1 py-2 min-w-0 cursor-pointer text-left transition-colors"
       >
-        {/* Vertical status bar */}
+        {/* Live gradient overlay — fixed pixel width so desktop doesn't over-bleed */}
+        {isLive && (
+          <div
+            className="absolute inset-y-2 left-0 w-[150px] md:w-[115px] pointer-events-none"
+            style={{ background: "linear-gradient(to right, rgba(0, 255, 165, 0.10), transparent)" }}
+          />
+        )}
         <div
           className="w-[3px] flex-shrink-0 self-stretch"
           style={{ backgroundColor: BAR_COLORS[statusInfo.type] }}
         />
-        {/* Status */}
         <div className="w-[52px] flex-shrink-0 flex flex-col  items-center justify-center">
           <span
             className="text-xs font-semibold"
@@ -98,7 +97,6 @@ export function MatchCard({ event }: MatchCardProps) {
           )}
         </div>
 
-        {/* Teams */}
         <div className="flex-1 flex flex-col gap-1.5 min-w-0">
           <div className="flex items-center gap-[9px]">
             {event.strHomeTeamBadge ? (
@@ -130,7 +128,6 @@ export function MatchCard({ event }: MatchCardProps) {
           </div>
         </div>
 
-        {/* Scores */}
         {(isFinished || isLive) && (
           <div className="flex flex-col items-end gap-1.5 ml-4 mr-3 flex-shrink-0">
             {isFinished ? (

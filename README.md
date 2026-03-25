@@ -22,7 +22,7 @@ React 19 · TypeScript · Vite · Tailwind CSS v4 · TanStack Query · React Rou
 Data is sourced from [TheSportsDB](https://www.thesportsdb.com/) free tier.
 
 **Why there are no live matches:**
-The free API does not provide a reliable live match feed. The `lookuptimeline.php` endpoint (minute-by-minute events) is restricted to Patreon supporters, and there is no free endpoint that returns currently in-progress matches with live scores.
+The free API does not provide a reliable live match feed. The `lookuptimeline.php` endpoint (minute by minute events) is restricted to Patreon supporters, and there is no free endpoint that returns currently in-progress matches with live scores.
 
 Because of this:
 
@@ -31,3 +31,6 @@ Because of this:
 - **Live** matches are not available on the free tier — the Live filter tab is present in the UI but will show 0 matches.
 
 The match timeline on the detail page uses static mock data to demonstrate the UI, since `lookuptimeline.php` requires a paid subscription.
+
+**Mock live matches:**
+To demonstrate the live match UI (gradient background, minute indicator, HT label), two hardcoded mock events are injected into the fixtures list — Wycombe Wanderers vs Wrexham (63') and Burton Albion vs Bristol Rovers (HT). These are not real live matches and clicking through to their detail pages will show an error, since there is no real event data behind them in the API.

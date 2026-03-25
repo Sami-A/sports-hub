@@ -54,7 +54,7 @@ const BAR_COLORS: Record<MatchStatusType, string> = {
 const STATUS_TEXT_COLORS: Record<MatchStatusType, string> = {
   finished: "#E55050",
   live: "#00E5A0",
-  upcoming: "rgba(255,255,255,0.5)",
+  upcoming: "#FFFFFF",
 };
 
 
@@ -78,7 +78,7 @@ export function MatchCard({ event }: MatchCardProps) {
       {/* Clickable area */}
       <button
         onClick={handleClick}
-        className="flex items-center flex-1 py-4 min-w-0 cursor-pointer text-left transition-colors"
+        className="flex items-center flex-1 py-2 min-w-0 cursor-pointer text-left transition-colors"
       >
         {/* Vertical status bar */}
         <div
@@ -100,12 +100,12 @@ export function MatchCard({ event }: MatchCardProps) {
 
         {/* Teams */}
         <div className="flex-1 flex flex-col gap-1.5 min-w-0">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-[9px]">
             {event.strHomeTeamBadge ? (
               <img
                 src={event.strHomeTeamBadge}
                 alt=""
-                className="w-5 h-5 object-contain flex-shrink-0"
+                className="w-4 h-4 object-contain flex-shrink-0"
               />
             ) : (
               <div className="w-5 h-5 rounded-full bg-white/10 flex-shrink-0" />
@@ -119,7 +119,7 @@ export function MatchCard({ event }: MatchCardProps) {
               <img
                 src={event.strAwayTeamBadge}
                 alt=""
-                className="w-5 h-5 object-contain flex-shrink-0"
+                className="w-4 h-4 object-contain flex-shrink-0"
               />
             ) : (
               <div className="w-5 h-5 rounded-full bg-white/10 flex-shrink-0" />

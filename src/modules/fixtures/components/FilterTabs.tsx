@@ -28,7 +28,7 @@ export function FilterTabs({ totalCount }: FilterTabsProps) {
             style={{
               borderRadius: "8px",
               backgroundColor: isActive ? "#00FFA5" : "#1D1E2B",
-              color: isActive ? "#000" : "rgba(255,255,255,0.5)",
+              color: isActive ? "#000" : "#D1D5DB",
             }}
           >
             {tab.Icon && (
@@ -39,7 +39,7 @@ export function FilterTabs({ totalCount }: FilterTabsProps) {
               className="text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full"
               style={{
                 backgroundColor: "#181921",
-                color: isActive ? "#00FFA5" : "rgba(255,255,255,0.5)",
+                color: isActive ? "#00FFA5" : "#D1D5DB",
               }}
             >
               {count}

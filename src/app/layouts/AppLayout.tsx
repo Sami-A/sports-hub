@@ -9,7 +9,7 @@ export function AppLayout() {
     <div className="flex flex-col min-h-screen">
       <Navigation activeTab={isMatchDetail ? "Live" : "Matches"} />
       <main className="flex-1 flex justify-center">
-        <div className="w-full max-w-[1440px]">
+        <div className="w-full max-w-[820px]">
           <Outlet />
         </div>
       </main>

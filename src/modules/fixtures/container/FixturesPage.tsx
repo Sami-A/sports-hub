@@ -19,10 +19,10 @@ export default function FixturesPage() {
   const leagueGroups = groupByLeague(events);
 
   return (
-    <div className="min-h-full p-4">
+    <div className="min-h-full py-4 px-4">
       <h1 className="text-white text-xl font-semibold mb-4">Matches</h1>
 
-      <div className="bg-[#1D1E2B] rounded-lg mb-4 py-px">
+      <div className="mb-4 -ml-4 md:ml-0 md:bg-[#1D1E2B] md:rounded-lg md:py-px">
         <DateNav />
       </div>
       <FilterTabs totalCount={events.length} />

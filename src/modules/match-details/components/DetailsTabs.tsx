@@ -13,7 +13,7 @@ export function DetailsTabs() {
   const [activeTab, setActiveTab] = useState<string>("Events");
 
   return (
-    <div className="flex items-center gap-1 px-6">
+    <div className="flex items-center gap-1 px-6 overflow-y-auto">
       {TABS.map((tab) => (
         <button
           key={tab}
@@ -21,7 +21,7 @@ export function DetailsTabs() {
           className={`px-4 py-3 text-sm font-medium transition-colors relative ${
             activeTab === tab
               ? "text-white"
-              : "text-white/40 hover:text-white/60"
+              : "text-[#D1D5DB] hover:text-white/80"
           }`}
         >
           {tab}

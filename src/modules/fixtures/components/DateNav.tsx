@@ -48,7 +48,7 @@ export function DateNav() {
   return (
     <>
       {/* Desktop: simple today nav */}
-      <div className="hidden md:flex items-center justify-between py-3 mb-4 border border-white/10 rounded-lg px-4 bg-[#1D1E2B]">
+      <div className="hidden md:flex items-center justify-between py-3 border border-white/10 rounded-lg px-6 bg-[#1D1E2B]">
         <button className="text-white hover:text-white text-lg transition-colors">
           ‹
         </button>
@@ -66,16 +66,16 @@ export function DateNav() {
         <div className="relative flex-1 overflow-hidden">
           {/* Left fade gradient */}
           <div
-            className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10"
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-30 z-10"
             style={{
-              background: "linear-gradient(to right, #1D1E2B, transparent)",
+              background: "linear-gradient(to right, #181921, transparent)",
             }}
           />
           {/* Right fade gradient */}
           <div
-            className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10"
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-30 z-10"
             style={{
-              background: "linear-gradient(to left, #1D1E2B, transparent)",
+              background: "linear-gradient(to left, #181921, transparent)",
             }}
           />
 
@@ -91,8 +91,8 @@ export function DateNav() {
                   onClick={() => setSelectedIdx(idx)}
                   className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
                     isSelected
-                      ? "bg-[#00E5A0]/20 text-[#00E5A0]"
-                      : "text-white/50 hover:text-white/80"
+                      ? "bg-[#252639] text-[#00E5A0]"
+                      : "text-[#D1D5DB] hover:text-white/80"
                   }`}
                 >
                   <span>{day.weekday}</span>
@@ -103,7 +103,7 @@ export function DateNav() {
           </div>
         </div>
         <button className="flex-shrink-0 p-1">
-          <CalendarIcon className="w-5 h-5" />
+          <CalendarIcon className="w-5 h-5 text-[#00FFA5]" />
         </button>
       </div>
     </>

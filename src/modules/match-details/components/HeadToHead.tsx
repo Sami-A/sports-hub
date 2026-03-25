@@ -20,7 +20,6 @@ export function HeadToHead({ event }: HeadToHeadProps) {
 
   return (
     <div className="flex items-center justify-center gap-8 py-6 px-6">
-      {/* Home Team */}
       <div className="flex flex-col items-center gap-2 w-[120px]">
         {event.strHomeTeamBadge ? (
           <img
@@ -37,7 +36,6 @@ export function HeadToHead({ event }: HeadToHeadProps) {
         </span>
       </div>
 
-      {/* Score */}
       <div className="flex flex-col items-center gap-1">
         <span className="text-white/40 text-xs">
           {formatDate(event.dateEvent)}
@@ -52,7 +50,6 @@ export function HeadToHead({ event }: HeadToHeadProps) {
         )}
       </div>
 
-      {/* Away Team */}
       <div className="flex flex-col items-center gap-2 w-[120px]">
         {event.strAwayTeamBadge ? (
           <img

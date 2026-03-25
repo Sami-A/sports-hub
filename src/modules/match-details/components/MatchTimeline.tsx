@@ -11,7 +11,7 @@ function Divider({ label }: { label: string }) {
   return (
     <div className="flex items-center w-full gap-3 py-3">
       <div className="flex-1 h-px bg-white/10" />
-      <span className="text-white/40 text-xs font-medium whitespace-nowrap">
+      <span className="text-[#E5E7EB] text-xs font-medium whitespace-nowrap">
         {label}
       </span>
       <div className="flex-1 h-px bg-white/10" />
@@ -27,12 +27,11 @@ function TimelineRow({ evt }: { evt: TimelineEvent }) {
 
   return (
     <div className="flex items-center w-full py-1.5">
-      {/* Home side */}
       <div className="flex-1 flex items-center justify-end">
         {isHome ? (
           <>
             <div className="flex flex-col items-end mr-2">
-              <span className={`text-xs leading-tight ${isGoal ? "text-[#00E5A0] font-semibold" : "text-white/80"}`}>
+              <span className={`text-xs leading-tight ${isGoal ? "text-[#00E5A0] font-semibold" : "text-white"}`}>
                 {evt.player}
               </span>
               {evt.subtitle && (
@@ -56,14 +55,13 @@ function TimelineRow({ evt }: { evt: TimelineEvent }) {
         {minuteLabel}
       </div>
 
-      {/* Away side */}
       <div className="flex-1 flex items-center justify-start">
         {!isHome ? (
           <>
             <div className="w-6 h-px bg-white/20 mx-1 flex-shrink-0" />
             <div className="flex-shrink-0">{icon}</div>
             <div className="flex flex-col items-start ml-2">
-              <span className={`text-xs leading-tight ${isGoal ? "text-[#00E5A0] font-semibold" : "text-white/80"}`}>
+              <span className={`text-xs leading-tight ${isGoal ? "text-[#00E5A0] font-semibold" : "text-white"}`}>
                 {evt.player}
               </span>
               {evt.subtitle && (
@@ -94,7 +92,7 @@ export function MatchTimeline({ event }: MatchTimelineProps) {
   });
 
   return (
-    <div className="bg-[#1E1F2B] rounded-lg px-6 py-4">
+    <div className="bg-[#1E1F2B] rounded-lg px-4 py-4">
       <h3 className="text-white text-base font-medium mb-2">Events</h3>
       <Divider label={`Fulltime  ${homeScore} - ${awayScore}`} />
       {secondHalf.map((evt, i) => (

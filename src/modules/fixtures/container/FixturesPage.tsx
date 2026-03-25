@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useFixtures } from "@/modules/fixtures/hooks/useFixtures";
 import { MatchCard } from "@/modules/fixtures/components/MatchCard";
-import { FilterTabs } from "@/modules/fixtures/components/FilterTabs";
+import { FilterTabs, type FilterTab } from "@/modules/fixtures/components/FilterTabs";
 import { DateNav } from "@/modules/fixtures/components/DateNav";
 import type { SportsEvent } from "@/shared/types/match";
 
@@ -14,9 +15,26 @@ function groupByLeague(events: SportsEvent[]) {
   return groups;
 }
 
+function getEventStatus(event: SportsEvent): "finished" | "live" | "upcoming" {
+  const { intHomeScore, intAwayScore, strStatus } = event;
+  if (intHomeScore !== null && intAwayScore !== null) {
+    if (strStatus && /^\d+/.test(strStatus)) return "live";
+    if (strStatus === "Halftime" || strStatus === "HT") return "live";
+    return "finished";
+  }
+  return "upcoming";
+}
+
 export default function FixturesPage() {
   const { data: events = [], isLoading, error } = useFixtures();
-  const leagueGroups = groupByLeague(events);
+  const [activeTab, setActiveTab] = useState<FilterTab>("all");
+
+  const filteredEvents =
+    activeTab === "live"
+      ? events.filter((e) => getEventStatus(e) === "live")
+      : events;
+
+  const leagueGroups = groupByLeague(filteredEvents);
 
   return (
     <div className="min-h-full py-4 px-4">
@@ -25,7 +43,7 @@ export default function FixturesPage() {
       <div className="mb-4 -ml-4 md:ml-0 md:bg-[#1D1E2B] md:rounded-lg md:py-px">
         <DateNav />
       </div>
-      <FilterTabs totalCount={events.length} />
+      <FilterTabs events={events} activeTab={activeTab} onTabChange={setActiveTab} />
 
       {isLoading && (
         <div className="flex items-center justify-center py-20">
@@ -44,7 +62,6 @@ export default function FixturesPage() {
         !error &&
         Object.entries(leagueGroups).map(([league, matches]) => (
           <div key={league} className="mb-4 bg-[#1D1E2B] rounded-lg overflow-hidden p-4">
-            {/* League header */}
             <div className="flex items-center justify-between py-3">
               <h2 className="text-white text-sm font-medium">{league}</h2>
               <svg width="16" height="16" viewBox="0 0 16 16" className="text-white">
@@ -58,8 +75,6 @@ export default function FixturesPage() {
                 />
               </svg>
             </div>
-
-            {/* Match rows with dividers */}
             <div className="flex flex-col">
               {matches.map((match) => (
                 <MatchCard key={match.idEvent} event={match} />

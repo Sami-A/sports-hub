@@ -3,7 +3,7 @@ export const API_BASE_URL =
 
 export const API_ENDPOINTS = {
   FIXTURES_NEXT: `${API_BASE_URL}/eventsnext.php?id=133602`,
-  FIXTURES_LAST: `${API_BASE_URL}/eventslast.php?id=133602`,
+  FIXTURES_LAST: `${API_BASE_URL}/eventspastleague.php?id=4396`,
   MATCH_DETAIL: (eventId: string) =>
     `${API_BASE_URL}/lookupevent.php?id=${eventId}`,
 } as const;

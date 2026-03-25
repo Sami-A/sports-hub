@@ -33,8 +33,8 @@ function HamburgerIcon() {
 
 export function Navigation({ activeTab = "Matches" }: NavigationProps) {
   return (
-    <nav className="flex items-center h-[60px] bg-[#6D00FF] px-4 lg:px-6 w-full flex-shrink-0 overflow-x-auto overflow-y-hidden scrollbar-hide">
-      <Link to="/" className="flex items-center mr-6 lg:mr-10 flex-shrink-0">
+    <nav className="flex items-center h-[60px] bg-[#6D00FF] px-3 lg:px-6 w-full flex-shrink-0 overflow-hidden">
+      <Link to="/" className="flex items-center mr-3 lg:mr-10 flex-shrink-0">
         <img src="/statscore-logo.png" alt="statscore" className="h-6 lg:h-8 xl:h-[60px] w-auto" />
       </Link>
 
@@ -60,15 +60,13 @@ export function Navigation({ activeTab = "Matches" }: NavigationProps) {
       </div>
 
       {/* Mobile center icons (< lg) */}
-      <div className="flex lg:hidden items-center gap-2 flex-1 justify-center">
-        <BallIcon className="w-10 h-10" />
-        <GlobeIcon className="w-10 h-10" />
-        <div className="flex items-center gap-1 bg-black/15 rounded-full px-3 h-10 cursor-pointer">
-          <DropdownIcon className="w-4 h-4" />
-        </div>
+      <div className="flex lg:hidden items-center gap-1.5 flex-1 justify-center">
+        <BallIcon className="w-9 h-9" />
+        <GlobeIcon className="w-9 h-9" />
+        <FlagIcon className="w-9 h-9" />
       </div>
 
-      <div className="flex items-center gap-2 flex-shrink-0 ml-4">
+      <div className="flex items-center gap-1.5 lg:gap-2 flex-shrink-0 ml-2 lg:ml-4">
         {/* Desktop icons */}
         <div className="hidden lg:flex items-center gap-2">
           <GlobeIcon className="w-10 h-10 cursor-pointer" />
@@ -83,7 +81,7 @@ export function Navigation({ activeTab = "Matches" }: NavigationProps) {
         </div>
 
         {/* Season selector */}
-        <div className="flex items-center gap-1 bg-black/15 rounded-full px-3 h-10 text-white text-sm cursor-pointer">
+        <div className="flex items-center gap-1 bg-black/15 rounded-full px-2.5 lg:px-3 h-9 lg:h-10 text-white text-sm cursor-pointer whitespace-nowrap">
           <span>2026/25</span>
           <ChevronDown />
         </div>
@@ -94,7 +92,7 @@ export function Navigation({ activeTab = "Matches" }: NavigationProps) {
         </div>
 
         {/* Hamburger - mobile */}
-        <button className="flex lg:hidden items-center justify-center w-8 h-8">
+        <button className="flex lg:hidden items-center justify-center w-7 h-7">
           <HamburgerIcon />
         </button>
       </div>

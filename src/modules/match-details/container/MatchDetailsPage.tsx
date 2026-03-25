@@ -30,7 +30,7 @@ export default function MatchDetailsPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="bg-[#1D1E2B] border-b border-white/10 lg:mx-4 lg:mt-4 lg:rounded-t-lg overflow-y-auto">
+      <div className="bg-[#1D1E2B] border-b border-white/10 lg:mx-4 lg:mt-4 lg:rounded-t-lg">
         <div className="px-6 pt-4">
           <button
             onClick={() => navigate(-1)}

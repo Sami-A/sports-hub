@@ -1,6 +1,8 @@
 # The Sports Hub
 
-A live sports fixtures dashboard. Shows upcoming and recent matches grouped by league, with match detail pages including head-to-head stats and event timelines. Data comes from TheSportsDB and refreshes every 15 seconds.
+A responsive sports fixtures dashboard. Shows upcoming and recent matches grouped by league, with match detail pages including head-to-head stats and event timelines. Data comes from TheSportsDB and refreshes every 15 seconds.
+
+**Live:** https://sports-hub-dun.vercel.app/
 
 ## Run locally
 
@@ -14,3 +16,18 @@ Opens at `http://localhost:5173`.
 ## Tech
 
 React 19 · TypeScript · Vite · Tailwind CSS v4 · TanStack Query · React Router v7
+
+## API & Data Limitations
+
+Data is sourced from [TheSportsDB](https://www.thesportsdb.com/) free tier.
+
+**Why there are no live matches:**
+The free API does not provide a reliable live match feed. The `lookuptimeline.php` endpoint (minute-by-minute events) is restricted to Patreon supporters, and there is no free endpoint that returns currently in-progress matches with live scores.
+
+Because of this:
+
+- **Finished (FT)** matches are fetched from `eventspastleague.php` and shown with full scores.
+- **Upcoming** matches are fetched from `eventsnext.php` and shown with scheduled kick-off times.
+- **Live** matches are not available on the free tier — the Live filter tab is present in the UI but will show 0 matches.
+
+The match timeline on the detail page uses static mock data to demonstrate the UI, since `lookuptimeline.php` requires a paid subscription.
